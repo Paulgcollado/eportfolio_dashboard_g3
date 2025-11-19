@@ -1,7 +1,10 @@
-function Cabecera() {
+function Cabecera(props) {
 
     return (
-        <>HEADER</>
+        <header>
+            <p>HEADER</p>
+            <p>{props.usuario}</p>
+        </header>
     )
 }
 

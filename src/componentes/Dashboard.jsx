@@ -1,7 +1,10 @@
-function Dashboard() {
+function Dashboard(props) {
 
     return (
-        <>MAIN</>
+        <main>
+            <p>MAIN</p>
+            <p>{props.token}</p>
+        </main>
     )
 }
 

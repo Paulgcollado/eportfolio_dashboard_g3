@@ -1,13 +1,19 @@
-
+#root {
+    margin: 0 auto;
+    text-align: center;
+}
 
 .cabecera {
-    background-color: rgb(89, 89, 89);
+    height: 12vh;
+    background-color: rgb(120, 120, 120);
 }
 
 .roles {
-    background-color: rgb(180, 180, 180);
+    height: 88vh;
+    background-color: rgb(200, 200, 200);
 }
 
 .dashboard {
+    height: 88vh;
     background-color: greenyellow;
 }

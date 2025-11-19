@@ -1,7 +1,10 @@
-function Roles() {
+function Roles(props) {
 
     return (
-        <>ROLES</>
+        <aside>
+            <p>ROLES</p>
+            <p>{props.menu}</p>
+        </aside>
     )
 }
 
