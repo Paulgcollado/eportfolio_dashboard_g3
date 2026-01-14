@@ -9,12 +9,19 @@ import Dashboard from './components/Dashboard.jsx'
 // ------------------------------------------------------------------
 // CONTEXTO
 import TokenContext from './contexts/TokenContext.jsx'
+import { useState } from 'react'
 
 function App() {
 
-    const usuario = 'Paul';
+    // ------------------------------------------------------------------
+    // CONSTANTES
     const token = "U295IGVsIFRva2Vu";
+    const username = 'User';
     const menu = 'menu';
+
+    // ------------------------------------------------------------------
+    // ESTADOS
+    const [usuario, setUsuario] = useState(username);
 
     return (
         <TokenContext.Provider value={token}>
