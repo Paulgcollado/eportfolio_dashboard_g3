@@ -2,7 +2,7 @@ function Roles(props) {
 
     return (
         <aside>
-            <p>ROLES</p>
+            <h1>ROLES</h1>
             <p>{props.menu}</p>
         </aside>
     )

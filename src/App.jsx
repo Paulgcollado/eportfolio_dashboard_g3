@@ -1,24 +1,33 @@
 import './App.css'
-import Cabecera from './componentes/Cabecera'
-import Roles from './componentes/Roles'
-import Dashboard from './componentes/Dashboard'
+
+// ------------------------------------------------------------------
+// COMPONENTES
+import Cabecera from './components/Cabecera.jsx'
+import Roles from './components/Roles.jsx'
+import Dashboard from './components/Dashboard.jsx'
+
+// ------------------------------------------------------------------
+// CONTEXTO
+import TokenContext from './contexts/TokenContext.jsx'
 
 function App() {
 
     const usuario = 'Paul';
-    const token = 'AY071';
+    const token = "U295IGVsIFRva2Vu";
     const menu = 'menu';
 
     return (
-        <div className='container-fluid'>
-            <div className='row'>
-                <div className="col-12 cabecera"><Cabecera usuario={usuario}/></div>
+        <TokenContext.Provider value={token}>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className="col-12 cabecera"><Cabecera usuario={usuario}/></div>
+                </div>
+                <div className="row">
+                    <div className="col-3 roles"><Roles menu={menu}/></div>
+                    <div className="col-9 dashboard"><Dashboard/></div>
+                </div>
             </div>
-            <div className="row">
-                <div className="col-3 roles"><Roles menu={menu}/></div>
-                <div className="col-9 dashboard"><Dashboard token={token}/></div>
-            </div>
-        </div>
+        </TokenContext.Provider>
     )
 }
 
