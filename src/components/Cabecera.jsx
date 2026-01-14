@@ -1,4 +1,4 @@
-function Cabecera(props) {
+const Cabecera = (props) => {
 
     return (
         <header>

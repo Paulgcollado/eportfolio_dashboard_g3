@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 // ------------------------------------------------------------------
@@ -9,7 +10,7 @@ import Dashboard from './components/Dashboard.jsx'
 // ------------------------------------------------------------------
 // CONTEXTO
 import TokenContext from './contexts/TokenContext.jsx'
-import { useState } from 'react'
+import UserContext from './contexts/UserContext.jsx'
 
 function App() {
 
@@ -29,10 +30,12 @@ function App() {
                 <div className='row'>
                     <div className="col-12 cabecera"><Cabecera usuario={usuario}/></div>
                 </div>
-                <div className="row">
-                    <div className="col-3 roles"><Roles menu={menu}/></div>
-                    <div className="col-9 dashboard"><Dashboard/></div>
-                </div>
+                <UserContext.Provider value={usuario}>
+                    <div className="row">
+                        <div className="col-3 roles"><Roles menu={menu}/></div>
+                        <div className="col-9 dashboard"><Dashboard/></div>
+                    </div>
+                </UserContext.Provider>
             </div>
         </TokenContext.Provider>
     )
