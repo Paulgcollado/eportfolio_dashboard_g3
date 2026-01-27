@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import MODULOS_MATRICULADOS from "../mocks/mock-matriculados.js";
 import UserContext from "../contexts/UserContext";
 
-const useMisModulosMatriculados = () => {
-    const user = useContext(UserContext);
+const useMisModulosMatriculados = (user) => {
 
     // Estado llamado buscando inicializado a false.
     const [buscando, setBuscando] = useState(false);

@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import MODULOS from "../mocks/mock-impartidos.js";
 import UserContext from "../contexts/UserContext";
 
-const useMisModulosImpartidos = () => {
-    const user = useContext(UserContext);
+const useMisModulosImpartidos = (user) => {
 
     // Estado llamado buscando inicializado a false.
     const [buscando, setBuscando] = useState(false);

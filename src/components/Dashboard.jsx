@@ -1,6 +1,9 @@
 import { useContext } from "react"
 import TokenContext from '../contexts/TokenContext.jsx';
-import NuevaEvidencia from "./NuevaEvidencia.jsx";
+import FuncionalidadDocente from "../pages/FuncionalidadDocente.jsx";
+import FuncionalidadEstudiante from "../pages/FuncionalidadEstudiante.jsx";
+
+import { Routes, Route } from "react-router-dom";
 
 const Dashboard = () => {
 
@@ -10,8 +13,10 @@ const Dashboard = () => {
     return (
         <main>
             <h1>MAIN</h1>
-            <p>{token}</p>
-            <NuevaEvidencia></NuevaEvidencia>
+            <Routes>
+                <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} />
+                <Route path="/funcionalidadestudiante/:modulo" element={<FuncionalidadEstudiante />} />
+            </Routes>
         </main>
     )
 }

@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import ROLES from "../mocks/mock-roles.js";
 import UserContext from "../contexts/UserContext";
 
-const useRoles = () => {
-    const user = useContext(UserContext);
+const useRoles = (user) => {
 
     // Estado llamado buscando inicializado a false.
     const [buscando, setBuscando] = useState(false);

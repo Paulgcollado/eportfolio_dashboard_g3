@@ -18,6 +18,6 @@ const opcionesMenu = {
                 ruta  : "/matriculas"},
                 {nombre:"Asignar docentes",
                 ruta  : "/docentes"}
-              ]
+        ],
     };
-  export default opcionesMenu;
+export default opcionesMenu;
