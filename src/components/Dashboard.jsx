@@ -12,8 +12,8 @@ const Dashboard = () => {
 
     return (
         <main>
-            <h1>MAIN</h1>
             <Routes>
+                <Route path="/" element="" />
                 <Route path="/funcionalidaddocente/:modulo" element={<FuncionalidadDocente />} />
                 <Route path="/funcionalidadestudiante/:modulo" element={<FuncionalidadEstudiante />} />
             </Routes>
