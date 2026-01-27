@@ -37,11 +37,11 @@ const NuevaEvidenciaForm = (props) => {
     return (
         <Box
             component="form"
-            sx={{ '& .MuiTextField-root': { width: '96ch' } }}
+            sx={{ '& .MuiTextField-root': { width: '100%' } }}
             autoComplete='off'
             onSubmit={manejarFormulario}
         >
-            <TextField id="url" label="URL" variant="outlined"
+            <TextField id="url" label="URL" variant="outlined" fullWidth
                 {
                 ...register(
                     "url",
