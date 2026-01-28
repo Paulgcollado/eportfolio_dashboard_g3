@@ -13,26 +13,27 @@ const SelectorTareaRA = (props) => {
     const [tareaRA, setTareaRA] = useState('');
 
     function handleChange(event) {
-        const tareaId = event.target.value;
-        setTareaRA(tareaId);
-
-        const tarea = tareasRA.lista.find((value) => value.id === tareaId)
+        const nombreTarea = event.target.value;
+        const tarea = tareasRA.lista.find((value) => value.observaciones === nombreTarea)
         props.onTareaSeleccionada(tarea);
+        setTareaRA(nombreTarea);
     }
 
     function renderMenuItem(value) {
-        return <MenuItem key={value.id} value={value.id}>{value.observaciones}</MenuItem>
+        return <MenuItem key={value.id} value={value.observaciones}>{value.observaciones}</MenuItem>
     }
 
     return (
         <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Tarea</InputLabel>
+                <InputLabel shrink>Tarea</InputLabel>
                 <Select
                     value={tareaRA}
                     label="Tarea"
+                    notched
                     onChange={handleChange}
                     displayEmpty
+                    // Mostrar el nombre de la tarea seleccionada o "Sin seleccionar" si no hay ninguna
                     renderValue={(selected) => {
                         return (selected.length === 0) ? "Sin seleccionar" : selected;
                     }}
