@@ -1,0 +1,16 @@
+import { useState } from "react";
+import ROLES from "../mocks/mock-roles.js";
+
+const useRoles = (user) => {
+
+    // Estado llamado buscando inicializado a false.
+    const [buscando, setBuscando] = useState(false);
+
+    // Estado llamado lista que será un array inicializado con los roles asociados al usuario conectado desde el fichero mock_roles.js.
+    const [lista, setLista] = useState(ROLES[user].roles);
+
+    // El hook devolverá un objeto con ambos estados.
+    return { buscando, lista };
+}
+
+export default useRoles;
