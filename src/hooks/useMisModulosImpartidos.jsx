@@ -1,6 +1,5 @@
-import { useState } from "react";
-import MODULOS from "../mocks/mock-impartidos.js";
-import UserContext from "../contexts/UserContext";
+import { useEffect, useState } from "react";
+import getModulosImpartidos from "../services/Modulos/getModulosImpartidos.js";
 
 const useMisModulosImpartidos = (user) => {
 
@@ -8,7 +7,18 @@ const useMisModulosImpartidos = (user) => {
     const [buscando, setBuscando] = useState(false);
 
     // Estado llamado lista que será un array inicializado con los módulos impartidos por el usuario conectado desde el fichero mock_impartidos.js.
-    const [lista, setLista] = useState(MODULOS[user].lista);
+    const [lista, setLista] = useState([]);
+
+    function obtenerModulosImpartidos() {
+        setBuscando(true);
+        getModulosImpartidos().then((modulos) => {
+            const listaModulos = modulos[user].lista;
+            setLista(listaModulos);
+            setBuscando(false);
+        })
+    }
+
+    useEffect(obtenerModulosImpartidos, []);
 
     // El hook devolverá un objeto con ambos estados.
     return { buscando, lista };
