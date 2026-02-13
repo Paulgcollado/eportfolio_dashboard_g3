@@ -6,15 +6,16 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-import tareasRA from '../mocks/mock-tareasRA.js';
+import useTareasRA from '../hooks/useTareasRA.jsx';
 
 const SelectorTareaRA = (props) => {
 
+    const { buscando, lista } = useTareasRA(1);
     const [tareaRA, setTareaRA] = useState('');
 
     function handleChange(event) {
         const nombreTarea = event.target.value;
-        const tarea = tareasRA.lista.find((value) => value.observaciones === nombreTarea)
+        const tarea = lista.find((value) => value.observaciones === nombreTarea)
         props.onTareaSeleccionada(tarea);
         setTareaRA(nombreTarea);
     }
@@ -38,7 +39,7 @@ const SelectorTareaRA = (props) => {
                     }}
                 >
                     {
-                        tareasRA.lista.map(renderMenuItem)
+                        (buscando) ? "Cargando..." : lista?.map(renderMenuItem)
                     }
                 </Select>
             </FormControl>

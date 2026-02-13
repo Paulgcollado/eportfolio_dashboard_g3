@@ -3,11 +3,11 @@ import { useState } from "react";
 import SelectorTareaRA from "./SelectorTareaRA.jsx";
 import NuevaEvidenciaForm from "./NuevaEvidenciaForm.jsx";
 
-import tareasRA from '../mocks/mock-tareasRA.js';
+import useEvidencias from "../hooks/useEvidencias.jsx";
 
 const NuevaEvidencia = () => {
 
-    const [listaTareas, setListaTareas] = useState(tareasRA.lista);
+    const evidencias = useEvidencias();
     const [tarea, setTarea] = useState({});
 
     const handleTareaSeleccionada = (tarea) => {
@@ -18,13 +18,12 @@ const NuevaEvidencia = () => {
     const handleAñadirEvidencia = (evidencia) => {
         evidencia.tarea_id = tarea.id;
         console.log("EvidenciaAñadida: ", evidencia);
-        setListaTareas([...listaTareas, evidencia]);
     }
 
     return (
         <div>
             <SelectorTareaRA onTareaSeleccionada={handleTareaSeleccionada}></SelectorTareaRA><br />
-            <NuevaEvidenciaForm manejarAñadirEvidencia={handleAñadirEvidencia} tarea={tarea}></NuevaEvidenciaForm>
+            <NuevaEvidenciaForm manejarAñadirEvidencia={handleAñadirEvidencia} tarea={tarea} evidencias={evidencias}></NuevaEvidenciaForm>
         </div>
     );
 }

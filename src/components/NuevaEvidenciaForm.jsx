@@ -30,8 +30,14 @@ const NuevaEvidenciaForm = (props) => {
     } = useForm({ defaultValues: ESTADO_INICIAL });
 
     const manejarFormulario = handleSubmit((nuevaEvidencia) => {
-        props.manejarAñadirEvidencia(nuevaEvidencia);
-        reset(ESTADO_INICIAL);
+        props.evidencias.crearEvidencia(nuevaEvidencia).then((evidenciaCreada) => {
+            if (Object.keys(evidenciaCreada).length > 0) {
+                props.manejarAñadirEvidencia(nuevaEvidencia);
+                reset(ESTADO_INICIAL);
+            } else {
+                console.log("ERROR al crear la evidencia")
+            }
+        });
     });
 
     return (
