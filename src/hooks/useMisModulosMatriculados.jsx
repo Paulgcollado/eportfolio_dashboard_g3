@@ -1,6 +1,5 @@
-import { useState } from "react";
-import MODULOS_MATRICULADOS from "../mocks/mock-matriculados.js";
-import UserContext from "../contexts/UserContext";
+import { useEffect, useState } from "react";
+import getModulosMatriculados from "../services/Modulos/getModulosMatriculados.js";
 
 const useMisModulosMatriculados = (user) => {
 
@@ -8,7 +7,18 @@ const useMisModulosMatriculados = (user) => {
     const [buscando, setBuscando] = useState(false);
 
     // Estado llamado lista que será un array inicializado con los módulos matriculados por el usuario conectado desde el fichero mock_matriculados.js.
-    const [lista, setLista] = useState(MODULOS_MATRICULADOS[user].lista);
+    const [lista, setLista] = useState([]);
+
+    function obtenerModulosMatriculados() {
+        setBuscando(true);
+        getModulosMatriculados().then((modulos) => {
+            const listaModulos = modulos[user].lista;
+            setLista(listaModulos);
+            setBuscando(false);
+        })
+    }
+
+    useEffect(obtenerModulosMatriculados, []);
 
     // El hook devolverá un objeto con ambos estados.
     return { buscando, lista };
