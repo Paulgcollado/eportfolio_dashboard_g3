@@ -31,7 +31,7 @@ function App() {
                     <div className="col-12 cabecera"><Cabecera usuario={usuario}/></div>
                 </div>
                 <UserContext.Provider value={usuario}>
-                    <div className="row">
+                    <div className="row contenido-principal">
                         <div className="col-3 roles"><Roles menu={menu}/></div>
                         <div className="col-9 dashboard"><Dashboard/></div>
                     </div>
