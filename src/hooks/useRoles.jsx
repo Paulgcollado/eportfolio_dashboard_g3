@@ -12,10 +12,9 @@ const useRoles = (user) => {
     function obtenerRoles() {
         setBuscando(true);
         getAllRoles().then((roles) => {
-            const listaRoles = roles.data;
+            const listaRoles = roles[user].roles;
             setLista(listaRoles);
             setBuscando(false);
-            console.log(listaRoles);
         })
     }
 

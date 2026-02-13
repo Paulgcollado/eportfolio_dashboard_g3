@@ -11,6 +11,7 @@
 .roles {
     height: 88vh;
     background-color: rgb(200, 200, 200);
+    padding: 0;
 }
 
 .dashboard {

@@ -33,7 +33,6 @@ const SelectorTareaRA = (props) => {
                     notched
                     onChange={handleChange}
                     displayEmpty
-                    // Mostrar el nombre de la tarea seleccionada o "Sin seleccionar" si no hay ninguna
                     renderValue={(selected) => {
                         return (selected.length === 0) ? "Sin seleccionar" : selected;
                     }}

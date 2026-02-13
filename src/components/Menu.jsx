@@ -14,16 +14,16 @@ const Menu = (props) => {
     const modulosMatriculados = useModulosMatriculados(props.user);
 
     const renderMenuItems = (rol) => {
-        switch (rol.name) {
-            case "Administrador":
+        switch (rol) {
+            case "administrador":
                 return opcionesMenu.administrador.map((opcion, index) => (
                     <MenuItem ruta={opcion.ruta} nombre={opcion.nombre} key={index}></MenuItem>
                 ));
-            case "Docente":
+            case "docente":
                 return modulosImpartidos.lista.map((modulo, index) => (
                     <MenuItem ruta={`/funcionalidaddocente/${modulo.id}`} nombre={modulo.nombre} key={index}></MenuItem>
                 ));
-            case "Estudiante":
+            case "estudiante":
                 return modulosMatriculados.lista.map((modulo, index) => (
                     <MenuItem ruta={`/funcionalidadestudiante/${modulo.id}`} nombre={modulo.nombre} key={index}></MenuItem>
                 ));
@@ -42,7 +42,7 @@ const Menu = (props) => {
                             aria-controls="panel1-content"
                             id="panel1-header"
                         >
-                            <Typography component="span">{ rol.name }</Typography>
+                            <Typography component="span">{String(rol).toUpperCase() }</Typography>
                         </AccordionSummary>
                         {
                             renderMenuItems(rol)
