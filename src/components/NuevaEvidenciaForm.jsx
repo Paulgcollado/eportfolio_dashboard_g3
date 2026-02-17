@@ -32,7 +32,7 @@ const NuevaEvidenciaForm = (props) => {
     const manejarFormulario = handleSubmit((nuevaEvidencia) => {
         props.evidencias.crearEvidencia(nuevaEvidencia).then((evidenciaCreada) => {
             if (Object.keys(evidenciaCreada).length > 0) {
-                props.manejarAñadirEvidencia(nuevaEvidencia);
+                props.manejarAñadirEvidencia(evidenciaCreada);
                 reset(ESTADO_INICIAL);
             } else {
                 console.log("ERROR al crear la evidencia")
@@ -55,14 +55,17 @@ const NuevaEvidenciaForm = (props) => {
                         required: {
                             value: true,
                             message: "La URL es obligatoria"
+                        },
+                        pattern: {
+                            value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/,
+                            message: "Ingresa una URL válida"
                         }
-                        // TODO: URL Válida
                     }
                 )
                 }
             /><br /><span>{errors.url?.message}</span><br />
 
-            <TextField 
+            <TextField
                 id="descripcion"
                 label="Observaciones"
                 multiline

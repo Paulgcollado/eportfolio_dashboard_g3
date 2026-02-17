@@ -11,7 +11,7 @@ const useEvidencias = () => {
 
     function crearEvidencia(evidencia_) {
         setBuscando(true);
-        return newEvidencia().then((evidenciaCreada) => {
+        return newEvidencia(evidencia_).then((evidenciaCreada) => {
             if (Object.keys(evidenciaCreada).length > 0) {
                 setLista(prev => [...prev, evidenciaCreada]);
             }

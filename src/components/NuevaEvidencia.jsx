@@ -16,8 +16,10 @@ const NuevaEvidencia = () => {
     };
 
     const handleAñadirEvidencia = (evidencia) => {
-        evidencia.tarea_id = tarea.id;
-        console.log("EvidenciaAñadida: ", evidencia);
+        const evidenciaCompleta = {
+            ...evidencia, tarea_id: tarea.id
+        };
+        console.log("EvidenciaAñadida: ", evidenciaCompleta);
     }
 
     return (

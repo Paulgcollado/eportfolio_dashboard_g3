@@ -2,7 +2,7 @@
     margin: 0 auto;
     text-align: center;
     height: 100vh;
-    overflow-y: auto; /* Permite scroll en el contenedor principal */
+    overflow-y: auto;
 }
 
 .cabecera {
@@ -10,22 +10,22 @@
     top: 0;
     z-index: 100;
     height: 12vh;
-    min-height: 60px; /* Altura mínima para evitar que se haga muy pequeño */
+    min-height: 60px;
     background-color: rgb(120, 120, 120);
 }
 
 .roles {
     position: sticky;
-    top: 12vh; /* Se pega justo debajo de la cabecera */
+    top: 12vh;
     height: 88vh;
-    min-height: 400px; /* Altura mínima */
+    min-height: 400px;
     background-color: rgb(200, 200, 200);
     padding: 0;
 }
 
 .dashboard {
-    height: auto; /* Cambia a auto para que se expanda */
-    min-height: 88vh; /* Mínimo 88vh pero puede crecer */
+    height: auto;
+    min-height: 88vh;
     background-color: greenyellow;
-    padding-bottom: 20px; /* Espacio adicional al final */
+    padding-bottom: 20px;
 }

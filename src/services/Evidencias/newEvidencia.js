@@ -1,13 +1,13 @@
 const newEvidencia = (evidencia_) => {
 
-    // LA RUTA DEL ENDPOINT LA HE PUESTO IGUAL QUE LA DE TAREAS. NO FUNCIONARÁ EL POST PORQUE NO PERMITE REALIZAR POST EN MOCKI.IO
-    const URL = "https://mocki.io/v1/4dd57215-91e4-4d86-bbc4-bbffb5d6d614";
+    // LA RUTA DEL ENDPOINT CON MOCKAPI.IO
+    const URL = "https://69946490fade7a9ec0f5440e.mockapi.io/api/v1/evidencias";
 
     return fetch(URL, {
         method: 'POST',
         body: JSON.stringify(evidencia_),
         headers: {
-            'Content-type': 'application/json; charset=UTF8'
+            'Content-type': 'application/json; charset=UTF-8'
         }
     })
         .then((response) => response.json())
